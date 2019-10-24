@@ -1,0 +1,26 @@
+{
+	"name" : "fgsl/geneticalgorithm",
+	"description" : "Fgsl Genetic Algorithm",
+	"type" : "component",
+	"keywords" : [
+		"artificial intelligence",
+		"computational intelligence",
+		"evolutionary computation",
+		"genetic algorithm"
+	],
+	"homepage" : "https://github.com/fgsl/geneticalgorithm",
+	"license" : "AGPL-3.0-only",
+	"autoload" : {
+		"psr-4" : {
+			"Fgsl\\GeneticAlgorithm\\" : "src/Fgsl/GeneticAlgorithm",
+			"Fgsl\\Test\\GeneticAlgorithm\\" : "tests/Fgsl/GeneticAlgorithm"
+		}
+	},
+	"require" : {
+		"php" : ">=7.0",
+		"phpunit/phpunit" : "^8.3"
+	},
+	"config" : {
+		"secure-http" : false
+	}
+}
