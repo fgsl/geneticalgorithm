@@ -18,7 +18,7 @@ class GeneticAlgorithmTest extends TestCase
 {
     public function testGeneticAlgorithm()
     {
-        $geneticAlgorithm = new GeneticAlgorithm( 100, new BinPackingRules(10,20), 1000 );
+        $geneticAlgorithm = new GeneticAlgorithm( 100, new BinPackingRules(10,20,true), 1000 );
         $bestIndividual = $geneticAlgorithm->execute ();
         $this->assertTrue(is_array($bestIndividual));
     }    
