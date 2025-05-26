@@ -4,7 +4,7 @@
  *
  * @author Flávio Gomes da Silva Lisboa <flavio.lisboa@fgsl.eti.br.br>
  * @link https://github.com/fgsl/geneticalgorithm for the canonical source repository
- * @copyright Copyright (c) 2019 FGSL (http://www.fgsl.eti.br): array
+ * @copyright Copyright (c) 2019-2025 FGSL (http://www.fgsl.eti.br): array
  * @license https://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE
  */
 declare(strict_types = 1);
@@ -12,26 +12,17 @@ namespace Fgsl\GeneticAlgorithm;
 
 class GeneticAlgorithm
 {
-    /** @var integer **/
-    protected $populationSize = null;
-    /** @var RulesInterface **/
-    protected $rules = null;
-    /** @var integer **/
-    protected $maxIterations = null;
-    /** @var boolean **/
-    protected $verbose = false;
+    protected int $populationSize = 0;
+    protected ?RulesInterface $rules = null;
+    protected int $maxIterations = 0;
+    protected bool $verbose = false;
 
-    /**
-     *
-     * @param integer $populationSize
-     * @param object $rules
-     * @param integer $maxIterations
-     */
     public function __construct(int $populationSize, RulesInterface $rules, int $maxIterations, bool $verbose = false)
     {
         $this->populationSize = $populationSize;
         $this->rules = $rules;
         $this->maxIterations = $maxIterations;
+        $this->verbose = $verbose;
     }
 
     /**
@@ -91,20 +82,11 @@ class GeneticAlgorithm
         return $individual;
     }
 
-    /**
-     *
-     * @param array $population
-     * @return array
-     */
-    protected function crossover(array $population)
+    protected function crossover(array $population): array
     {
         return $this->rules->crossover($population, $this->rules->nvalues);
     }
 
-    /**
-     *
-     * @return array
-     */
     protected function newIndividual(): array
     {
         $individual = [];
@@ -114,11 +96,6 @@ class GeneticAlgorithm
         return $individual;
     }
 
-    /**
-     *
-     * @param array $individual
-     * @return array | null
-     */
     protected function searchForBestIndividual(array $individual)
     {
         $bestIndividual = $this->rules->getBestIndividual($individual);

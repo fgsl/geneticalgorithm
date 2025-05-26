@@ -4,7 +4,7 @@
  *
  * @author Flávio Gomes da Silva Lisboa <flavio.lisboa@fgsl.eti.br.br>
  * @link https://github.com/fgsl/geneticalgorithm for the canonical source repository
- * @copyright Copyright (c) 2019 FGSL (http://www.fgsl.eti.br)
+ * @copyright Copyright (c) 2019-2025 FGSL (http://www.fgsl.eti.br)
  * @license https://www.gnu.org/licenses/agpl.txt GNU AFFERO GENERAL PUBLIC LICENSE
  */
 declare(strict_types=1);

@@ -12,21 +12,16 @@ namespace Fgsl\Test\GeneticAlgorithm;
 
 use Fgsl\GeneticAlgorithm\RulesInterface;
 
-class BinPackingRules implements RulesInterface
+/**
+ * 
+ */
+class KnapsackProblemRules implements RulesInterface
 {
-    /** @var boolean  */
-    private $verbose = false;
-    /** @var integer  */
-    private $minLimit;
-    /** @var integer  */
-    private $maxLimit;
-    /** @var integer  */
-    public $nvalues = 5;
+    private bool $verbose = false;
+    private int $minLimit;
+    private int $maxLimit;
+    public int $nvalues = 5;
 
-    /**
-     *
-     * @param boolean $verbose
-     */
     public function __construct(int $minLimit, int $maxLimit, $verbose = false)
     {
         $this->minLimit = $minLimit;
@@ -38,15 +33,13 @@ class BinPackingRules implements RulesInterface
      *
      * {@inheritdoc}
      * @see \Fgsl\GeneticAlgorithm\RulesInterface::getBestIndividual()
-     * @return array | null 
      */
     public function getBestIndividual(array $individual)
     {
         $bestIndividual = null;
-        if (($enough = $this->fitness($individual)) < $this->maxLimit) {
-            if ($enough > $this->minLimit) {
-                $bestIndividual = $individual;
-            }
+        if (($enough = $this->fitness($individual)) < $this->maxLimit
+         && ($enough > $this->minLimit)) {
+            $bestIndividual = $individual;
         }
         return $bestIndividual;
     }
